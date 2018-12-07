@@ -1,0 +1,75 @@
+body, h1, h2, h3, h4, h5, h6, text, span {
+  font-family: 'Source Sans Pro', sans-serif !important;
+  /*font-family: Verdana, Geneva, sans-serif !important;*/
+  /*overflow-y: hidden;*/
+}
+
+.main-bg {
+  background: url("../icons/bg-2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.home-menu-bar {
+  width: 100%;
+  height: 8%;
+  background-color: black;
+  color: white;
+  opacity: 0.4;
+}
+
+.footer {
+  /*padding: 45px 0px 0px 165px;*/
+  width: 100%;
+  background-color: black;
+  color: white;
+  opacity: 0.8;
+}
+
+.flex-row-parent {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-col-parent {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-space-around {
+  justify-content: space-around;
+}
+
+.p-t-18 {
+  padding-top: 18px;
+}
+
+.menu-items {
+  cursor: pointer;
+}
+
+.menu-items:hover {
+  background-color: cadetblue;
+  opacity: 1;
+}
+
+.about-parent {
+  height: 100%;
+  font-size: 20px;
+  color: cornsilk;
+}
+
+.home-parent {
+  height: 100%;
+  font-size: 20px;
+  color: cornsilk;
+}
+
+.font-20 {
+  font-size: 20px;
+}
+
+.opacity-80{
+  opacity: 0.8;
+}
