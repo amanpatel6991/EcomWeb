@@ -1,0 +1,30 @@
+<div class="sign-in-parent">
+  <div class="login1-form flex-col-parent" style="justify-content: space-around">
+    <div class="font-20 flex-row-parent" style="justify-content: center">Sign In With</div>
+    <div class="flex-row-parent" style="justify-content: center">
+      <!--<meta name="google-signin-client_id" content="556478218291-5vk6kfklnvcs5ofd1vop6kh7sqbgqpj7.apps.googleusercontent.com">-->
+      <!--<div class="g-signin2" (googleSignInSuccess)="onGoogleSignInSuccess($event)">Sign  In</div>-->
+      <google-signin
+      [clientId]="myClientId"
+      [width]="myWidth"
+      [theme]="myTheme"
+      [scope]="myScope"
+      [longTitle]="myLongTitle"
+      (googleSignInSuccess)="onGoogleSignInSuccess($event)"
+      (googleSignInFailure)="onGoogleSignInFail($event)">
+      </google-signin>
+    </div>
+    <div class="flex-row-parent" style="justify-content: center">
+      <form [formGroup]="signInForm">
+        <div class="font-14">Username</div>
+        <input formControlName="username" style="height: 30%" [(ngModel)]="loginInfo.username">
+        <div class="font-14">Password</div>
+        <input formControlName="password" type="password" style="height: 30%" [(ngModel)]="loginInfo.password">
+        <div class="btn-action font-16" style="text-align: center;margin-top: 5%" (click)="onUserSignIn()">Sign In</div>
+      </form>
+    </div>
+
+    <!--todo add this functionality afterwards-->
+    <div class="flex-row-parent font-16" style="justify-content: center;"><u>Not a member ? Sign up Now</u></div>
+  </div>
+</div>

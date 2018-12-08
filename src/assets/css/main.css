@@ -47,10 +47,12 @@ body, h1, h2, h3, h4, h5, h6, text, span {
 
 .menu-items {
   cursor: pointer;
+  color: white;
+  font-weight: 600;
 }
 
 .menu-items:hover {
-  background-color: cadetblue;
+  color: cornflowerblue;
   opacity: 1;
 }
 
@@ -66,10 +68,96 @@ body, h1, h2, h3, h4, h5, h6, text, span {
   color: cornsilk;
 }
 
+.sign-in-parent {
+  /*background-image: url("../icons/login-img.jpg");*/
+  height: 100%;
+  font-size: 20px;
+  color: cornsilk;
+}
+
+.user-dashboard-parent {
+  /*background-image: url("../icons/login-img.jpg");*/
+  height: 100%;
+  font-size: 20px;
+  color: black;
+  background-color: antiquewhite;
+}
+
+.contact-parent {
+  height: 100%;
+  font-size: 20px;
+  color: cornsilk;
+}
+
 .font-20 {
   font-size: 20px;
 }
 
-.opacity-80{
+.font-12 {
+  font-size: 12px;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.font-16 {
+  font-size: 16px;
+}
+
+.opacity-80 {
   opacity: 0.8;
+}
+
+.btn-action {
+  cursor: pointer !important;
+  opacity: 1 !important;
+  pointer-events: all !important;
+}
+
+.g-signin2 {
+  background: transparent;
+}
+
+.abcRioButton {
+  -webkit-border-radius: 1px;
+  -webkit-box-shadow: 0 2px 4px 0px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
+  transition: background-color .218s, border-color .218s, box-shadow .218s;
+  -webkit-user-select: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  background-image: none;
+  color: #262626;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: auto;
+  border: 2px solid cornflowerblue;
+  border-radius: 3px;
+  margin-top: 10px;
+}
+
+.abcRioButton:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+}
+
+.login1-form{
+  position: relative;
+  top: 10%;
+  left: 0%;
+  margin: 0 auto;
+  background-color: black;
+  opacity: 0.4;
+  height: 80%;
+  width: 35%;
 }
