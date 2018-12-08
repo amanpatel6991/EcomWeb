@@ -58,7 +58,8 @@ export class SigninComponent implements OnInit {
         console.log('Email: ' + profile.getEmail());
         //YOUR CODE HERE
 
-        // this.commonService.signedIn.next(true);       //this one -> still not working
+        this.commonService.signedIn.next(true);             //this one -> still not working
+        this.routingService.routeToEntity("userDashboard");
 
 
       }, (error) => {

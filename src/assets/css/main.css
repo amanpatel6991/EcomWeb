@@ -115,8 +115,13 @@ body, h1, h2, h3, h4, h5, h6, text, span {
   pointer-events: all !important;
 }
 
-.g-signin2 {
-  background: transparent;
+.g-signin {
+  border: 2px solid cornflowerblue;
+  padding: 1%;
+  width: 33%;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 5px;
 }
 
 .abcRioButton {
@@ -151,7 +156,7 @@ body, h1, h2, h3, h4, h5, h6, text, span {
   -moz-transform: scale(1.1);
 }
 
-.login1-form{
+.login1-form {
   position: relative;
   top: 10%;
   left: 0%;

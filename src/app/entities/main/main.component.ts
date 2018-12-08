@@ -14,6 +14,7 @@ export class MainComponent implements OnInit,OnDestroy {
 
   activeMenuTab: string;
   signedInStatus = false;
+  basicMenuIconsClicked = true;
   subscriptions: Subscription[] = [];
 
   // private myClientId: string = '556478218291-5vk6kfklnvcs5ofd1vop6kh7sqbgqpj7.apps.googleusercontent.com';
@@ -37,6 +38,11 @@ export class MainComponent implements OnInit,OnDestroy {
 
   routeToEntity(entity) {
     this.activeMenuTab = entity;
+    if (entity == "" || entity == "about" || entity == "contact") {
+      this.basicMenuIconsClicked = true;
+    } else {
+      this.basicMenuIconsClicked = false;
+    }
     this.routingService.routeToEntity(entity)
   }
 

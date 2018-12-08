@@ -2,24 +2,27 @@
   <div class="home-menu-bar flex-row-parent content-space-around">
     <div class="p-t-18" style="margin-right: 30%">SAMPLE NAME/LOGO</div>
     <div class="p-t-18 menu-items font-16" (click)="routeToEntity('')"
-         [ngStyle]="{'color':activeMenuTab == ''?'cornflowerblue':''}">HOME
+         [ngStyle]="{'color':activeMenuTab == ''?'cornflowerblue':''}">Home
     </div>
     <!--<div class="p-t-18 menu-items font-16">PRODUCTS</div>-->
     <div class="p-t-18 menu-items font-16" (click)="routeToEntity('about')"
-         [ngStyle]="{'color':activeMenuTab == 'about'?'cornflowerblue':''}">ABOUT US
+         [ngStyle]="{'color':activeMenuTab == 'about'?'cornflowerblue':''}">About Us
     </div>
     <div class="p-t-18 menu-items font-16" (click)="routeToEntity('contact')"
-         [ngStyle]="{'color':activeMenuTab == 'contact'?'cornflowerblue':''}">CONTACT
+         [ngStyle]="{'color':activeMenuTab == 'contact'?'cornflowerblue':''}">Contact
+    </div>
+    <div class="p-t-18 menu-items font-16" (click)="routeToEntity('userDashboard')" *ngIf="signedInStatus"
+         [ngStyle]="{'color':activeMenuTab == 'userDashboard'?'cornflowerblue':''}">Dashboard
     </div>
     <div class="p-t-18 menu-items font-16" (click)="routeToEntity('signin')" *ngIf="!signedInStatus"
-         [ngStyle]="{'color':activeMenuTab == 'contact'?'cornflowerblue':''}">Sign In
+         [ngStyle]="{'color':activeMenuTab == 'signin'?'cornflowerblue':''}">Sign In
     </div>
     <div class="p-t-18 menu-items font-16" (click)="onSignOut()" *ngIf="signedInStatus"
-         [ngStyle]="{'color':activeMenuTab == 'contact'?'cornflowerblue':''}">Sign Out
+         [ngStyle]="{'color':'cornflowerblue'}">Sign Out
     </div>
   </div>
 
-  <div class="" [ngStyle]="{'height' : !signedInStatus ? '62%' : '200%'}">
+  <div class="" [ngStyle]="{'height' : !signedInStatus || basicMenuIconsClicked ? '62%' : '200%'}">
     <router-outlet></router-outlet>
   </div>
 
