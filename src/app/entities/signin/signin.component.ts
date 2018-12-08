@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {GoogleSignInSuccess} from "angular-google-signin";
 import {FormControl, FormGroup} from "@angular/forms";
 import {CommonService} from "../../common/services/common.service";
 import {Login} from "../../common/Models/login.model";
 import {AppRoutingService} from "../../common/services/routing.service";
+
+declare const gapi: any;
 
 @Component({
   selector: 'app-signin',
@@ -16,7 +17,7 @@ export class SigninComponent implements OnInit {
 
   loginInfo: Login;
 
-  constructor(public commonService: CommonService,public routingService: AppRoutingService) {
+  constructor(public commonService: CommonService, public routingService: AppRoutingService) {
   }
 
   private myClientId: string = '556478218291-5vk6kfklnvcs5ofd1vop6kh7sqbgqpj7.apps.googleusercontent.com';
@@ -33,22 +34,40 @@ export class SigninComponent implements OnInit {
     });
   }
 
-  onGoogleSignInSuccess(event: GoogleSignInSuccess) {
-    console.log('in signin');
+  public auth2: any;
 
-    let googleUser: gapi.auth2.GoogleUser = event.googleUser;
-    // let id: string = googleUser.getId();
-    let profile: gapi.auth2.BasicProfile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Name: ' + profile.getEmail());
+  public googleInit() {
+    gapi.load('auth2', () => {
+      this.auth2 = gapi.auth2.init({
+        client_id: this.myClientId,
+        cookiepolicy: 'single_host_origin',
+        scope: 'profile email'
+      });
+      this.attachSignin(document.getElementById('googleBtn'));
+    });
+  }
+  public attachSignin(element) {
+    this.auth2.attachClickHandler(element, {},
+      (googleUser) => {
 
-    //todo make this work , only working from manual signin now
-    // this.commonService.signedIn.next(true)
+        let profile = googleUser.getBasicProfile();
+        console.log('Token || ' + googleUser.getAuthResponse().id_token);
+        console.log('ID: ' + profile.getId());
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail());
+        //YOUR CODE HERE
+
+        // this.commonService.signedIn.next(true);       //this one -> still not working
+
+
+      }, (error) => {
+        alert(JSON.stringify(error, undefined, 2));
+      });
   }
 
-  onGoogleSignInFail(event) {
-    console.log('Sign In FAILED !!', event);
+  ngAfterViewInit(){
+    this.googleInit();
   }
 
   onUserSignIn() {
@@ -60,3 +79,34 @@ export class SigninComponent implements OnInit {
   }
 
 }
+
+
+//google signin method 2(not for production)
+
+
+// onGoogleSignInSuccess(event: GoogleSignInSuccess) {
+//   console.log('in signin');
+//
+//   let googleUser: gapi.auth2.GoogleUser = event.googleUser;
+//   // let id: string = googleUser.getId();
+//   let profile: gapi.auth2.BasicProfile = googleUser.getBasicProfile();
+//   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+//   console.log('Name: ' + profile.getName());
+//   console.log('Name: ' + profile.getEmail());
+//
+//   // this.commonService.signedIn.next(true)
+// }
+//
+// onGoogleSignInFail(event) {
+//   console.log('Sign In FAILED !!', event);
+// }
+
+// <google-signin
+//   [clientId]="myClientId"
+//   [width]="myWidth"
+//   [theme]="myTheme"
+//   [scope]="myScope"
+//   [longTitle]="myLongTitle"
+// (googleSignInSuccess)="onGoogleSignInSuccess($event)"
+// (googleSignInFailure)="onGoogleSignInFail($event)">
+//   </google-signin>

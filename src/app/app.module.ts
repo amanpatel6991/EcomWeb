@@ -9,7 +9,6 @@ import { FooterComponent } from './entities/footer/footer.component';
 import {AppRoutingService} from "./common/services/routing.service";
 import { HomeComponent } from './entities/home/home.component';
 import { ContactComponent } from './entities/contact/contact.component';
-import {GoogleSignInComponent} from 'angular-google-signin';
 import { SigninComponent } from './entities/signin/signin.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CommonService} from "./common/services/common.service";
@@ -25,7 +24,6 @@ import {AuthGuard} from "./common/services/auth-guard.service";
     FooterComponent,
     HomeComponent,
     ContactComponent,
-    GoogleSignInComponent,
     SigninComponent,
     UserDashboardComponent
   ],
