@@ -16,5 +16,9 @@ export class AppRoutingService {
     this.router.navigate(['/'+entity]);
   }
 
+  public routeToDashBoard() {
+    this.router.navigate(['/userDashboard']);
+  }
+
 
 }

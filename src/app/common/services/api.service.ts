@@ -14,7 +14,7 @@ export class ApiService {
 
   public http_get(uri: string): Observable<any> {
     return Observable.create(observer => {
-      let headers = new HttpHeaders();
+      // let headers = new HttpHeaders();
       // headers = headers.append("Authorization","Basic" + btoa("wsuser:AirSiebel"));
       // headers = headers.append("Content-Type", "application/json");
       // this.http.get<any>(environment.api_base_url + uri, {headers:headers,observe: 'response'})
@@ -27,7 +27,7 @@ export class ApiService {
             observer.next(response.body);
             observer.complete();
           }, error => {
-            console.log("Get Error :",error)
+            console.log("Get Error :", error)
           }
         );
     });
@@ -36,10 +36,11 @@ export class ApiService {
   public http_post(uri: string, post_data): Observable<any> {
     return Observable.create(observer => {
       environment.production === false ? console.log(environment.api_base_url + uri, post_data) : 0;
-      let headers = new HttpHeaders();
-      headers = headers.append("Authorization","Basic " + btoa("wsuser:AirSiebel"));
-      headers = headers.append("Content-Type", "application/json");
-      this.http.post<any>(environment.api_base_url + uri, post_data, {headers:headers,observe: 'response'})
+      // let headers = new HttpHeaders();
+      // headers = headers.append("Authorization","Basic " + btoa("wsuser:AirSiebel"));
+      // headers = headers.append("Content-Type", "application/json");
+      // this.http.post<any>(environment.api_base_url + uri, post_data, {headers:headers,observe: 'response'})
+      this.http.post<any>(environment.api_base_url + uri, post_data, {observe: 'response'})
         .subscribe(
           (response) => {
             const api_status_code = response.headers.get('api_status_code');
@@ -48,7 +49,7 @@ export class ApiService {
             observer.next(response.body);
             observer.complete();
           }, error => {
-            console.log("Post Error :" , error)
+            console.log("Post Error :", error)
           }
         );
     });

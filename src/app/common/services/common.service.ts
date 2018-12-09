@@ -13,6 +13,8 @@ export class CommonService {
 
   signedIn = new BehaviorSubject<boolean>(false);
 
+  isLoading = new Subject<boolean>();
+
   isAuthenticated() {
     return this.signedIn.getValue();
   }
@@ -20,6 +22,14 @@ export class CommonService {
   onSignInSuccess() {
     this.signedIn.next(true);
     this.routingService.routeToEntity("userDashboard");
+  }
+
+  onloadingStart() {
+    this.isLoading.next(true);
+  }
+
+  onloadingEnd() {
+    this.isLoading.next(false);
   }
 
 }
