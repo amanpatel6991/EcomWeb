@@ -23,6 +23,12 @@ export class SigninComponent implements OnInit {
   private myClientId: string = '556478218291-5vk6kfklnvcs5ofd1vop6kh7sqbgqpj7.apps.googleusercontent.com';
 
   ngOnInit() {
+
+    console.log("in sign in ::",this.commonService.signedIn.getValue());
+    if (this.commonService.signedIn.getValue()) {
+      this.routingService.routeToEntity("userDashboard")
+    }
+
     this.loginInfo = new Login;
     this.initsignInForm();
   }
@@ -58,8 +64,10 @@ export class SigninComponent implements OnInit {
         console.log('Email: ' + profile.getEmail());
         //YOUR CODE HERE
 
-        this.commonService.signedIn.next(true);             //this one -> still not working
-        this.routingService.routeToEntity("userDashboard");
+        // this.commonService.signedIn.next(true);             //this one -> still not working
+        // this.routingService.routeToEntity("userDashboard");
+
+        this.commonService.onSignInSuccess()
 
 
       }, (error) => {
@@ -73,11 +81,12 @@ export class SigninComponent implements OnInit {
 
   onUserSignIn() {
     console.log("maunual sign in :", this.loginInfo);
-    this.commonService.signedIn.next(true);
 
-    this.routingService.routeToEntity("userDashboard");
+    this.commonService.onSignInSuccess()
 
   }
+
+
 
 }
 

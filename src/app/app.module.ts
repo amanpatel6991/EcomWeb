@@ -14,6 +14,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CommonService} from "./common/services/common.service";
 import { UserDashboardComponent } from './entities/user-dashboard/user-dashboard.component';
 import {AuthGuard} from "./common/services/auth-guard.service";
+import {ApiService} from "./common/services/api.service";
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import {AuthGuard} from "./common/services/auth-guard.service";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AppRoutingService , CommonService , AuthGuard],
+  providers: [AppRoutingService , CommonService , AuthGuard , ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

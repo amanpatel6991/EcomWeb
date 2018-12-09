@@ -14,10 +14,9 @@ export class MainComponent implements OnInit,OnDestroy {
 
   activeMenuTab: string;
   signedInStatus = false;
+
   basicMenuIconsClicked = true;
   subscriptions: Subscription[] = [];
-
-  // private myClientId: string = '556478218291-5vk6kfklnvcs5ofd1vop6kh7sqbgqpj7.apps.googleusercontent.com';
 
   constructor(public routingService: AppRoutingService,public commonService: CommonService) {
   }
@@ -29,6 +28,7 @@ export class MainComponent implements OnInit,OnDestroy {
         console.log("sign in stats" ,this.signedInStatus);
       }
     ));
+
   }
 
   ngOnDestroy() {
