@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {CommonService} from "../../common/services/common.service";
 import {Login} from "../../common/Models/login.model";
 import {AppRoutingService} from "../../common/services/routing.service";
+import {AuthService} from "../../common/services/auth.service";
 
 declare const gapi: any;
 
@@ -17,7 +18,9 @@ export class SigninComponent implements OnInit {
 
   loginInfo: Login;
 
-  constructor(public commonService: CommonService, public routingService: AppRoutingService) {
+  constructor(public commonService: CommonService,
+              public authService: AuthService,
+              public routingService: AppRoutingService) {
   }
 
   private myClientId: string = '556478218291-5vk6kfklnvcs5ofd1vop6kh7sqbgqpj7.apps.googleusercontent.com';
@@ -82,7 +85,7 @@ export class SigninComponent implements OnInit {
   onUserSignIn() {
     console.log("maunual sign in :", this.loginInfo);
 
-    this.commonService.onSignInSuccess()
+    this.authService.signInUser(this.loginInfo.username , this.loginInfo.password)
 
   }
 

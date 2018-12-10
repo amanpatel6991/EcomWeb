@@ -17,6 +17,8 @@ import {AuthGuard} from "./common/services/auth-guard.service";
 import {ApiService} from "./common/services/api.service";
 import {AuthService} from "./common/services/auth.service";
 import {CookieService} from "ngx-cookie-service";
+import {HttpClientModule} from "@angular/common/http";
+import {JwtModule} from "@auth0/angular-jwt";
 
 
 @NgModule({
@@ -34,7 +36,18 @@ import {CookieService} from "ngx-cookie-service";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: (getAccessToken),
+        headerName: 'token',
+        authScheme: '',
+        whitelistedDomains: ['localhost:5000'],
+        throwNoTokenError: false,
+        skipWhenExpired: true,
+      }
+    })
   ],
   providers: [
     AppRoutingService,
@@ -47,4 +60,8 @@ import {CookieService} from "ngx-cookie-service";
   bootstrap: [AppComponent]
 })
 export class AppModule {
+}
+
+export function getAccessToken() {
+  return localStorage.getItem('token');
 }

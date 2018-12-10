@@ -32,54 +32,55 @@ export class AuthService {
     this.tokenExpirationChanged.next(this.tokenExpiration);
   }
 
-  // signInUser(email: string, password: string) {
-  //   const http_url = environment.api_base_url + 'login';
-  //   // const http_headers = new Headers({'username': email, 'password': password});
-  //   // const http_options = new RequestOptions({headers: http_headers});
-  //
-  //   // let headers = new HttpHeaders();
-  //   // headers = headers.append('username' , email);
-  //   // headers = headers.append('password' , password);
-  //
-  //   this.commonService.onloadingStart();
-  //
-  //   this.http_service.get<any>(http_url, {observe: 'response', headers: new HttpHeaders({'username': email, 'password': password})})
-  //     .subscribe(
-  //       (response) => {
-  //         this.commonService.onloadingEnd();
-  //         console.log("login resp :" , response);
-  //         const api_status_code = response.headers.get('api_status_code');
-  //         switch (api_status_code) {
-  //           case '200': {
-  //             const token = response.body.token;
-  //             const payload = this.jwtHelper.decodeToken(token);
-  //             this.tokenExpiration = this.jwtHelper.getTokenExpirationDate(token);
-  //             this.tokenExpirationChanged.next(this.tokenExpiration);
-  //             this.authenticatedUser = {
-  //               'id': payload.id,
-  //               'first_name': payload.first_name,
-  //               'last_name': payload.last_name,
-  //               'email': payload.email,
-  //               'user_type': payload.user_type,
-  //               'profile_photo': payload.profile_photo,
-  //               'user_org_integration_id': payload.user_org_integration_id,
-  //               'locale': payload.locale,
-  //             };
-  //             this.user_org_integration_id = payload.user_org_integration_id;
-  //             localStorage.setItem('token', token);
-  //             localStorage.setItem('authenticatedUser', JSON.stringify(this.authenticatedUser));
-  //             this.routingService.routeToDashBoard();
-  //             break;
-  //           }
-  //
-  //           default: {
-  //             this.login_error = 'Email/Password Incorrect!';
-  //             break;
-  //           }
-  //         }
-  //       }
-  //     );
-  // }
+  signInUser(email: string, password: string) {
+    const http_url = environment.api_base_url + 'login';
+    // const http_headers = new Headers({'username': email, 'password': password});
+    // const http_options = new RequestOptions({headers: http_headers});
+
+    // let headers = new HttpHeaders();
+    // headers = headers.append('username' , email);
+    // headers = headers.append('password' , password);
+
+    // this.commonService.onloadingStart();
+
+    this.http_service.get<any>(http_url, {observe: 'response', headers: new HttpHeaders({'username': email, 'password': password})})
+      .subscribe(
+        (response) => {
+          // this.commonService.onloadingEnd();
+          console.log("login resp ::" , response);
+          // const api_status_code = response.headers.get('api_status_code');
+          // switch (api_status_code) {
+          //   case '200': {
+          //     const token = response.body.token;
+          //     const payload = this.jwtHelper.decodeToken(token);
+          //     this.tokenExpiration = this.jwtHelper.getTokenExpirationDate(token);
+          //     this.tokenExpirationChanged.next(this.tokenExpiration);
+          //     this.authenticatedUser = {
+          //       'id': payload.id,
+          //       'first_name': payload.first_name,
+          //       'last_name': payload.last_name,
+          //       'email': payload.email,
+          //       'user_type': payload.user_type,
+          //       'profile_photo': payload.profile_photo,
+          //       'user_org_integration_id': payload.user_org_integration_id,
+          //       'locale': payload.locale,
+          //     };
+          //     this.user_org_integration_id = payload.user_org_integration_id;
+          //     localStorage.setItem('token', token);
+          //     localStorage.setItem('authenticatedUser', JSON.stringify(this.authenticatedUser));
+          //     this.routingService.routeToDashBoard();
+          //
+          //     break;
+          //   }
+          //
+          //   default: {
+          //     this.login_error = 'Email/Password Incorrect!';
+          //     break;
+          //   }
+          // }
+        }
+      );
+  }
 
   // forgotPassword(email: string) {
   //   const http_url = environment.api_base_url + 'forgot_password';
