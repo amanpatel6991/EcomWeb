@@ -1,4 +1,4 @@
-<div [ngClass]="{'main-bg' : !signedInStatus}" style="height: 100vh;">
+<div [ngClass]="{'main-bg' : !signedInStatus}" style="height: 100%;">
   <div class="home-menu-bar flex-row-parent content-space-around">
     <div class="p-t-18" style="margin-right: 30%">SAMPLE NAME/LOGO</div>
     <div class="p-t-18 menu-items font-16" (click)="routeToEntity('')"
@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div class="" [ngStyle]="{'height' : !signedInStatus || basicMenuIconsClicked ? '62%' : '200%'}">
+  <div class="">
     <router-outlet></router-outlet>
   </div>
 

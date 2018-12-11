@@ -17,6 +17,7 @@ export class AppRoutingService {
   }
 
   public routeToDashBoard() {
+    console.log("route to dashboard");
     this.router.navigate(['/userDashboard']);
   }
 

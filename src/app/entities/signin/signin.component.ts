@@ -76,6 +76,13 @@ export class SigninComponent implements OnInit {
         // this.routingService.routeToEntity("userDashboard");
 
         // this.commonService.onSignInSuccess()
+        const upsert_array = {};
+        upsert_array['id'] = profile.getId();
+        upsert_array['name'] = profile.getName();
+        upsert_array['token'] = googleUser.getAuthResponse().id_token;
+        upsert_array['email'] = profile.getEmail();
+
+        this.authService.signInGoogleUser(upsert_array)
 
 
       }, (error) => {

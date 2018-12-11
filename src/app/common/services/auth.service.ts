@@ -50,16 +50,60 @@ export class AuthService {
               // this.tokenExpirationChanged.next(this.tokenExpiration);              //emit TOKEN EXP if needed in future
               console.log(payload);
               this.authenticatedUser = {
-                'id': payload.userprofile.id,
-                'first_name': payload.userprofile.first_name,
-                'last_name': payload.userprofile.last_name,
-                'email': payload.userprofile.email,
+                'id': payload.user_profile.id,
+                'first_name': payload.user_profile.first_name,
+                'last_name': payload.user_profile.last_name,
+                'email': payload.user_profile.email,
               };
               localStorage.setItem('token', token);
               localStorage.setItem('authenticatedUser', JSON.stringify(this.authenticatedUser));
 
               this.userSignedIn.next(true);
               this.routingService.routeToDashBoard();
+
+              break;
+            }
+
+            default: {
+              this.login_error = 'Email/Password Incorrect!';
+              break;
+            }
+          }
+        }
+      );
+  }
+
+  signInGoogleUser(userProfile) {
+    const http_url = environment.api_base_url + 'googleLogin';
+
+    console.log("userProfile ::" , userProfile)
+    // this.commonService.onloadingStart();
+
+    this.http_service.post<any>(http_url,userProfile, {observe: 'response'})
+      .subscribe(
+        (response) => {
+          // this.commonService.onloadingEnd();
+          console.log("googleLogin resp ::", response , response.body);
+          const api_status_code = response.status;
+          switch (api_status_code) {
+            case 200: {
+              const token = response.body.response.token;
+              const payload = this.jwtHelper.decodeToken(token);
+
+              this.tokenExpiration = this.jwtHelper.getTokenExpirationDate(token);
+              // this.tokenExpirationChanged.next(this.tokenExpiration);              //emit TOKEN EXP if needed in future
+              console.log(payload);
+              this.authenticatedUser = {
+                // 'id': payload.google_user_profile.id,
+                'name': payload.google_user_profile.name,
+                'email': payload.google_user_profile.email,
+              };
+              localStorage.setItem('token', token);
+              localStorage.setItem('authenticatedUser', JSON.stringify(this.authenticatedUser));
+
+              this.userSignedIn.next(true);
+              this.routingService.routeToDashBoard();
+              // window.location.reload();
 
               break;
             }
@@ -102,11 +146,15 @@ export class AuthService {
 
   isUserAuthenticated() {
     const token: string = this.jwtHelper.tokenGetter();
+    console.log("my token :::::::" , token)
     if (!token) {
+      console.log("my token 22 :::::::" , token)
       return false;
     }
 
     const tokenExpired: boolean = this.jwtHelper.isTokenExpired(token);
+    console.log("my token expp :::::::" , tokenExpired)
+
     return !tokenExpired;
   }
 
