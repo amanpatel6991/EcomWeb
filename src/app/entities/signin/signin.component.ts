@@ -4,6 +4,7 @@ import {CommonService} from "../../common/services/common.service";
 import {Login} from "../../common/Models/login.model";
 import {AppRoutingService} from "../../common/services/routing.service";
 import {AuthService} from "../../common/services/auth.service";
+import {Subscription} from "rxjs/index";
 
 declare const gapi: any;
 
@@ -15,8 +16,9 @@ declare const gapi: any;
 export class SigninComponent implements OnInit {
 
   signInForm: FormGroup;
-
   loginInfo: Login;
+
+  subscriptions: Subscription[] = [];
 
   constructor(public commonService: CommonService,
               public authService: AuthService,
@@ -27,10 +29,13 @@ export class SigninComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log("in sign in ::",this.commonService.signedIn.getValue());
-    if (this.commonService.signedIn.getValue()) {
-      this.routingService.routeToEntity("userDashboard")
-    }
+    this.subscriptions.push(this.authService.userSignedIn.subscribe(
+      (data) => {
+        if (data) {
+          this.routingService.routeToEntity("userDashboard");
+        }
+      }
+    ));
 
     this.loginInfo = new Login;
     this.initsignInForm();
@@ -70,7 +75,7 @@ export class SigninComponent implements OnInit {
         // this.commonService.signedIn.next(true);             //this one -> still not working
         // this.routingService.routeToEntity("userDashboard");
 
-        this.commonService.onSignInSuccess()
+        // this.commonService.onSignInSuccess()
 
 
       }, (error) => {
@@ -85,7 +90,12 @@ export class SigninComponent implements OnInit {
   onUserSignIn() {
     console.log("maunual sign in :", this.loginInfo);
 
-    this.authService.signInUser(this.loginInfo.username , this.loginInfo.password)
+    const upsert_array = {};
+    upsert_array['username'] = this.loginInfo.username;
+    upsert_array['password'] = this.loginInfo.password;
+
+
+    this.authService.signInUser(upsert_array)
 
   }
 

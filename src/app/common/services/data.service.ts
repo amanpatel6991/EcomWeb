@@ -3,24 +3,22 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {BehaviorSubject, Subject} from "rxjs/index";
 import {AppRoutingService} from "./routing.service";
 import {AuthService} from "./auth.service";
+import {ApiService} from "./api.service";
 
 @Injectable()
-export class CommonService {
+export class DataService {
 
   constructor(private router: Router,
               private activated: ActivatedRoute,
+              private apiService: ApiService,
               private routingService: AppRoutingService) {
   }
 
 
-  isLoading = new Subject<boolean>();
-
-  onloadingStart() {
-    this.isLoading.next(true);
+  testProtectedResource() {
+    this.apiService.http_get('sample')
+      .subscribe((response) => {
+      console.log("protected resp (data service) ::" , response)
+      });
   }
-
-  onloadingEnd() {
-    this.isLoading.next(false);
-  }
-
 }

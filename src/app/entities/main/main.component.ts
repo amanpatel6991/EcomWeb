@@ -4,6 +4,7 @@ import {GoogleSignInSuccess} from 'angular-google-signin';
 import {Subscription} from "rxjs/index";
 import {CommonService} from "../../common/services/common.service";
 import signIn = gapi.auth.signIn;
+import {AuthService} from "../../common/services/auth.service";
 
 @Component({
   selector: 'app-main',
@@ -18,16 +19,19 @@ export class MainComponent implements OnInit,OnDestroy {
   basicMenuIconsClicked = true;
   subscriptions: Subscription[] = [];
 
-  constructor(public routingService: AppRoutingService,public commonService: CommonService) {
+  constructor(public routingService: AppRoutingService,
+              public authService: AuthService,
+              public commonService: CommonService) {
   }
 
   ngOnInit() {
-    this.subscriptions.push(this.commonService.signedIn.subscribe(
+    this.subscriptions.push(this.authService.userSignedIn.subscribe(
       (data) => {
         this.signedInStatus = data;
         console.log("sign in stats" ,this.signedInStatus);
       }
     ));
+
 
   }
 
@@ -48,7 +52,7 @@ export class MainComponent implements OnInit,OnDestroy {
 
   onSignOut() {
     console.log("sign out clicked");
-    this.commonService.signedIn.next(false);
+    this.authService.signOutUser();
     this.routingService.routeToEntity("");
   }
 

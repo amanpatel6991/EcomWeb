@@ -16,9 +16,9 @@ import {UserDashboardComponent} from './entities/user-dashboard/user-dashboard.c
 import {AuthGuard} from "./common/services/auth-guard.service";
 import {ApiService} from "./common/services/api.service";
 import {AuthService} from "./common/services/auth.service";
-import {CookieService} from "ngx-cookie-service";
 import {HttpClientModule} from "@angular/common/http";
 import {JwtModule} from "@auth0/angular-jwt";
+import {DataService} from "./common/services/data.service";
 
 
 @NgModule({
@@ -43,7 +43,7 @@ import {JwtModule} from "@auth0/angular-jwt";
         tokenGetter: (getAccessToken),
         headerName: 'token',
         authScheme: '',
-        whitelistedDomains: ['localhost:5000'],
+        whitelistedDomains: ['localhost:5000' , 'localhost:8080'],
         throwNoTokenError: false,
         skipWhenExpired: true,
       }
@@ -55,7 +55,7 @@ import {JwtModule} from "@auth0/angular-jwt";
     AuthGuard,
     ApiService,
     AuthService,
-    CookieService
+    DataService
   ],
   bootstrap: [AppComponent]
 })
