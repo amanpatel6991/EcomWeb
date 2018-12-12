@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
 export class ApiService {
 
   constructor(public http: HttpClient,
-              private router_service: Router,) {
+              private router_service: Router) {
   }
 
 

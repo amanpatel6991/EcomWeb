@@ -28,11 +28,19 @@ export class SigninComponent implements OnInit {
   private myClientId: string = '556478218291-5vk6kfklnvcs5ofd1vop6kh7sqbgqpj7.apps.googleusercontent.com';
 
   ngOnInit() {
+    this.loginInfo = new Login;
+
+    if (this.authService.isUserAuthenticated()) {
+      this.routingService.routeToEntity("userDashboard");
+      console.log("in signin (signed in) is true")
+      this.authService.userSignedIn.next(true);
+    }
 
     this.subscriptions.push(this.authService.userSignedIn.subscribe(
       (data) => {
         if (data) {
           this.routingService.routeToEntity("userDashboard");
+          console.log("in signin (signed in) :" , data)
         }
       }
     ));
@@ -82,7 +90,8 @@ export class SigninComponent implements OnInit {
         upsert_array['token'] = googleUser.getAuthResponse().id_token;
         upsert_array['email'] = profile.getEmail();
 
-        this.authService.signInGoogleUser(upsert_array)
+        this.authService.signInGoogleUser(upsert_array);
+        window.location.reload()
 
 
       }, (error) => {

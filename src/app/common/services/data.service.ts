@@ -11,6 +11,7 @@ export class DataService {
   constructor(private router: Router,
               private activated: ActivatedRoute,
               private apiService: ApiService,
+              private authService: AuthService,
               private routingService: AppRoutingService) {
   }
 
@@ -19,6 +20,9 @@ export class DataService {
     this.apiService.http_get('sample')
       .subscribe((response) => {
       console.log("protected resp (data service) ::" , response)
+        if (response.statuscode == "401") {
+        this.authService.signOutUser()
+        }
       });
   }
 }

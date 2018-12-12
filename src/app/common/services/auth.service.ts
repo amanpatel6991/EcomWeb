@@ -94,7 +94,7 @@ export class AuthService {
               // this.tokenExpirationChanged.next(this.tokenExpiration);              //emit TOKEN EXP if needed in future
               console.log(payload);
               this.authenticatedUser = {
-                // 'id': payload.google_user_profile.id,
+                // 'id': payload.google_user_profile.id,         //upsert this record in googleUserTable in Go then return id then uncomment
                 'name': payload.google_user_profile.name,
                 'email': payload.google_user_profile.email,
               };

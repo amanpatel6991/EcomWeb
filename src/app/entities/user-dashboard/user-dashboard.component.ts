@@ -24,6 +24,14 @@ export class UserDashboardComponent implements OnInit {
   ngOnInit() {
     console.log("in dasbord");
 
+    if (this.authService.isUserAuthenticated()) {
+      // this.routingService.routeToEntity("userDashboard");
+      this.signedInStatus = true;
+      console.log("in main (signed in) is true")
+      this.authService.userSignedIn.next(true);
+
+    }
+    // window.location.reload()
     this.subscriptions.push(this.authService.userSignedIn.subscribe(
       (data) => {
         this.signedInStatus = data;
@@ -33,6 +41,7 @@ export class UserDashboardComponent implements OnInit {
         }
       }
     ));
+
 
   }
 
