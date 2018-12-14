@@ -6,12 +6,14 @@ import {ContactComponent} from "./entities/contact/contact.component";
 import {SigninComponent} from "./entities/signin/signin.component";
 import {UserDashboardComponent} from "./entities/user-dashboard/user-dashboard.component";
 import {AuthGuard} from "./common/services/auth-guard.service";
+import {SignupComponent} from "./entities/signup/signup.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
   {path: 'about', component: AboutUsComponent, pathMatch: 'full'},
   {path: 'contact', component: ContactComponent, pathMatch: 'full'},
   {path: 'signin', component: SigninComponent, pathMatch: 'full'},
+  {path: 'signup', component: SignupComponent, pathMatch: 'full'},
   {path: 'userDashboard', component: UserDashboardComponent,  canActivate: [AuthGuard] ,pathMatch: 'full'},
 ];
 

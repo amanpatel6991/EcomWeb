@@ -1,0 +1,39 @@
+<div class="sign-up-parent">
+  <div class="signup1-form flex-col-parent" style="justify-content: space-around;padding: 5%;border-radius: 10px">
+    <div class="font-20 flex-row-parent" style="justify-content: center;margin-top: -7%">Sign Up</div>
+    <form [formGroup]="signUpForm">
+      <div class="flex-row-parent" style="justify-content: space-between;margin-bottom: 5%">
+        <div style="height: 50px;width: 45%">
+          <div class="font-14">First Name</div>
+          <input class="w100" formControlName="first_name" style="height: 65%" [(ngModel)]="signupInfo.first_name">
+        </div>
+        <div style="height: 50px;width: 45%">
+          <div class="font-14">Last Name</div>
+          <input class="w100" formControlName="last_name" style="height: 65%" [(ngModel)]="signupInfo.last_name">
+        </div>
+      </div>
+      <div style="height: 50px;margin-bottom: 5%">
+        <div class="font-14">Email</div>
+        <input class="w100" formControlName="email" style="height: 65%;" [(ngModel)]="signupInfo.email">
+      </div>
+      <div style="height: 50px;margin-bottom: 5%">
+        <div class="font-14">Password</div>
+        <input class="w100" formControlName="password" type="password" style="height: 65%"
+               [(ngModel)]="signupInfo.password">
+      </div>
+      <div style="height: 50px;margin-bottom: 5%">
+        <div class="font-14">Confirm Password</div>
+        <input class="w100" formControlName="confirm_password" type="password" style="height: 65%"
+               [(ngModel)]="signupInfo.confirm_password">
+      </div>
+      <div class="flex-row-parent" style="justify-content: center;margin-top: 10%;height: 45px;">
+        <div class="btn-action font-16 signup-button" (click)="onUserSignUp()">Sign Up</div>
+      </div>
+    </form>
+    <!--</div>-->
+
+    <div class="flex-row-parent font-16 btn-action" style="justify-content: center"
+         (click)="routeToEntity('signin')"><u>Already Registered ? Sign In</u></div>
+
+  </div>
+</div>

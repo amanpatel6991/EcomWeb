@@ -78,7 +78,6 @@ export class MainComponent implements OnInit, OnDestroy {
   onSignOut() {
     console.log("sign out clicked");
     this.authService.signOutUser();
-    this.routingService.routeToEntity("");
   }
 
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {CommonService} from "../../common/services/common.service";
 import {Login} from "../../common/Models/login.model";
@@ -13,7 +13,7 @@ declare const gapi: any;
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SigninComponent implements OnInit {
+export class SigninComponent implements OnInit,OnDestroy {
 
   signInForm: FormGroup;
   loginInfo: Login;
@@ -45,15 +45,24 @@ export class SigninComponent implements OnInit {
       }
     ));
 
-    this.loginInfo = new Login;
+
     this.initsignInForm();
   }
 
+  ngOnDestroy() {
+    this.subscriptions.forEach((value, index, array) => value.unsubscribe());
+  }
+
+
   initsignInForm() {
     this.signInForm = new FormGroup({
-      'username': new FormControl(this.loginInfo.username, null),
+      'email': new FormControl(this.loginInfo.email, null),
       'password': new FormControl(this.loginInfo.password, null),
     });
+  }
+
+  routeToEntity(entity) {
+    this.routingService.routeToEntity(entity)
   }
 
   public auth2: any;
@@ -106,8 +115,13 @@ export class SigninComponent implements OnInit {
   onUserSignIn() {
     console.log("maunual sign in :", this.loginInfo);
 
+    if (this.loginInfo.email == "" || this.loginInfo.password == "") {
+      alert("Cannot Signin with blank Email and/or Password !");
+      return
+    }
+
     const upsert_array = {};
-    upsert_array['username'] = this.loginInfo.username;
+    upsert_array['email'] = this.loginInfo.email;
     upsert_array['password'] = this.loginInfo.password;
 
 

@@ -19,6 +19,7 @@ import {AuthService} from "./common/services/auth.service";
 import {HttpClientModule} from "@angular/common/http";
 import {JwtModule} from "@auth0/angular-jwt";
 import {DataService} from "./common/services/data.service";
+import { SignupComponent } from './entities/signup/signup.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {DataService} from "./common/services/data.service";
     HomeComponent,
     ContactComponent,
     SigninComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

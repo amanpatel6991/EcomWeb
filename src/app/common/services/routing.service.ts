@@ -21,5 +21,10 @@ export class AppRoutingService {
     this.router.navigate(['/userDashboard']);
   }
 
+  public routeToSignin() {
+    console.log("route to signin");
+    this.router.navigate(['/signin']);
+  }
+
 
 }

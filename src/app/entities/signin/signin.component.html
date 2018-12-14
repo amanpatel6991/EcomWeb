@@ -1,22 +1,29 @@
 <div class="sign-in-parent">
-  <div class="login1-form flex-col-parent" style="justify-content: space-around">
+  <div class="login1-form flex-col-parent" style="justify-content: space-around;padding: 5%;border-radius: 10px;">
     <div class="font-20 flex-row-parent" style="justify-content: center">Sign In With</div>
     <div class="flex-row-parent" style="justify-content: center">
-      <meta name="google-signin-client_id" content="556478218291-5vk6kfklnvcs5ofd1vop6kh7sqbgqpj7.apps.googleusercontent.com">
+      <meta name="google-signin-client_id"
+            content="556478218291-5vk6kfklnvcs5ofd1vop6kh7sqbgqpj7.apps.googleusercontent.com">
       <div class="g-signin" id="googleBtn">Sign In With Google</div>
 
     </div>
-    <div class="flex-row-parent" style="justify-content: center">
+    <!--<div class="flex-row-parent" style="justify-content: center">-->
       <form [formGroup]="signInForm">
-        <div class="font-14">Username</div>
-        <input formControlName="username" style="height: 30%" [(ngModel)]="loginInfo.username">
-        <div class="font-14">Password</div>
-        <input formControlName="password" type="password" style="height: 30%" [(ngModel)]="loginInfo.password">
-        <div class="btn-action font-16" style="text-align: center;margin-top: 5%" (click)="onUserSignIn()">Sign In</div>
+        <div style="height: 50px;margin-bottom: 5%">
+          <div class="font-14">Email</div>
+          <input class="w100" formControlName="email" style="height: 65%" [(ngModel)]="loginInfo.email">
+        </div>
+        <div style="height: 50px;margin-bottom: 5%">
+          <div class="font-14">Password</div>
+          <input class="w100" formControlName="password" type="password" style="height: 65%" [(ngModel)]="loginInfo.password">
+        </div>
+        <div class="flex-row-parent" style="justify-content: center;margin-top: 10%;height: 40px;">
+          <div class="btn-action font-16 login-button" (click)="onUserSignIn()">Sign In</div>
+        </div>
       </form>
-    </div>
+    <!--</div>-->
 
-    <!--todo add this functionality afterwards-->
-    <div class="flex-row-parent font-16" style="justify-content: center;"><u>Not a member ? Sign up Now</u></div>
+    <div class="flex-row-parent font-16 btn-action" style="justify-content: center;margin-top: 7%"
+         (click)="routeToEntity('signup')"><u>Not a member ? Sign up Now</u></div>
   </div>
 </div>
