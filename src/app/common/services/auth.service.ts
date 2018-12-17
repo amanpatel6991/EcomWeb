@@ -92,6 +92,7 @@ export class AuthService {
       .subscribe(
         (response) => {
           // this.commonService.onloadingEnd();
+          console.log("In googleLogin resp ");
           console.log("googleLogin resp ::", response , response.body);
           const api_status_code = response.status;
           switch (api_status_code) {
@@ -192,14 +193,14 @@ export class AuthService {
 
   isUserAuthenticated() {
     const token: string = this.jwtHelper.tokenGetter();
-    console.log("my token :::::::" , token)
+    // console.log("my token :::::::" , token)
     if (!token) {
-      console.log("my token 22 :::::::" , token)
+      // console.log("my token 22 :::::::" , token)
       return false;
     }
 
     const tokenExpired: boolean = this.jwtHelper.isTokenExpired(token);
-    console.log("my token expp :::::::" , tokenExpired)
+    // console.log("my token expp :::::::" , tokenExpired)
 
     return !tokenExpired;
   }

@@ -11,11 +11,11 @@
       <form [formGroup]="signInForm">
         <div style="height: 50px;margin-bottom: 5%">
           <div class="font-14">Email</div>
-          <input class="w100" formControlName="email" style="height: 65%" [(ngModel)]="loginInfo.email">
+          <input class="w100 form-input" formControlName="email" style="height: 65%" [(ngModel)]="loginInfo.email">
         </div>
         <div style="height: 50px;margin-bottom: 5%">
           <div class="font-14">Password</div>
-          <input class="w100" formControlName="password" type="password" style="height: 65%" [(ngModel)]="loginInfo.password">
+          <input class="w100 form-input" formControlName="password" type="password" style="height: 65%" [(ngModel)]="loginInfo.password">
         </div>
         <div class="flex-row-parent" style="justify-content: center;margin-top: 10%;height: 40px;">
           <div class="btn-action font-16 login-button" (click)="onUserSignIn()">Sign In</div>

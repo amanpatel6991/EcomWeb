@@ -16,7 +16,7 @@ import {filter} from "rxjs/operators";
 })
 export class MainComponent implements OnInit, OnDestroy {
 
-  activeMenuTab: string;
+  activeMenuTab = '';
   signedInStatus = false;
 
   basicMenuIconsClicked = true;
@@ -39,6 +39,8 @@ export class MainComponent implements OnInit, OnDestroy {
     //     console.log(res.url , this.signedInStatus)
     //   }
     // }));
+
+    // this.activeMenuTab = this.activatedRoute.snapshot[0];
 
 
     if (this.authService.isUserAuthenticated()) {
