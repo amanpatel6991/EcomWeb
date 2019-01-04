@@ -1,7 +1,7 @@
 <!--<div [ngClass]="{'main-bg' : !signedInStatus}" style="height: 100%;">-->
 <div style="height: 100%;background-color: #F2F3F7">
   <div class="home-menu-bar flex-row-parent content-space-around">
-    <div class="p-t-18" style="margin-right: 30%">SAMPLE NAME/LOGO</div>
+    <div class="p-t-18 font-20" style="margin-right: 30%"><b>MY-WEB</b></div>
     <div class="p-t-18 menu-items font-16" (click)="routeToEntity('')"
          [ngStyle]="{'color':activeMenuTab == ''?'black':''}">Home
     </div>
@@ -12,15 +12,19 @@
     <div class="p-t-18 menu-items font-16" (click)="routeToEntity('contact')"
          [ngStyle]="{'color':activeMenuTab == 'contact'?'black':''}">Contact
     </div>
+
+    <!--todo For Future Use-->
     <div class="p-t-18 menu-items font-16" (click)="routeToEntity('userDashboard')" *ngIf="signedInStatus"
-         [ngStyle]="{'color':activeMenuTab == 'userDashboard'?'black':''}">Dashboard
+    [ngStyle]="{'color':activeMenuTab == 'userDashboard'?'black':''}">Dashboard
     </div>
     <div class="p-t-18 menu-items font-16" (click)="routeToEntity('signin')" *ngIf="!signedInStatus"
-         [ngStyle]="{'color':activeMenuTab == 'signin'?'black':''}">Sign In
+    [ngStyle]="{'color':activeMenuTab == 'signin'?'black':''}">Sign In
     </div>
     <div class="p-t-18 menu-items font-16" (click)="onSignOut()" *ngIf="signedInStatus"
-         [ngStyle]="{'color':'black'}">Sign Out
+    [ngStyle]="{'color':'black'}">Sign Out
     </div>
+
+
   </div>
 
   <div class="">

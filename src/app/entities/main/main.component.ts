@@ -30,26 +30,15 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // this.subscriptions.push(this.router.events.pipe(
-    //   filter((event) => event instanceof NavigationEnd)
-    // ).subscribe((res) => {
-    //   console.log(res);
-    //   if (res.url == "/userDashboard") {
-    //     this.signedInStatus = true;
-    //     console.log(res.url , this.signedInStatus)
-    //   }
-    // }));
 
-    // this.activeMenuTab = this.activatedRoute.snapshot[0];
-
-
-    if (this.authService.isUserAuthenticated()) {
-      this.routingService.routeToEntity("userDashboard");
-      this.signedInStatus = true;
-      console.log("in main (signed in) is true")
-      this.authService.userSignedIn.next(true);
-
-    }
+    //Todo For future use
+    // if (this.authService.isUserAuthenticated()) {
+    //   this.routingService.routeToEntity("userDashboard");
+    //   this.signedInStatus = true;
+    //   console.log("in main (signed in) is true")
+    //   this.authService.userSignedIn.next(true);
+    //
+    // }
 
     this.subscriptions.push(this.authService.userSignedIn.subscribe(
       (data) => {

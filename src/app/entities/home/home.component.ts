@@ -16,6 +16,11 @@ export class HomeComponent implements OnInit {
     {index: 2, image: '../../../assets/icons/sample-2.jpg', alt: '', text: 'image 2'},
   ];
 
+  // imgSliderArray = [
+  //   {index: 1, image: 'https://drive.google.com/uc?id=1-u8sKjaLpN6woJkTGZbht6q6jnfFslgZ', alt: '', text: 'image 1'},
+  //   {index: 2, image: 'https://drive.google.com/uc?id=15TyZvWFRpUJZWXtOnthaRBbF6EwfmBlK', alt: '', text: 'image 2'},
+  // ];
+
   constructor(public routingService: AppRoutingService, public commonService: CommonService) {
   }
 
