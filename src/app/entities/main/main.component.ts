@@ -17,7 +17,7 @@ import {filter} from "rxjs/operators";
 export class MainComponent implements OnInit, OnDestroy {
 
   activeMenuTab = '';
-  signedInStatus = false;
+  // signedInStatus = false;
 
   basicMenuIconsClicked = true;
   subscriptions: Subscription[] = [];
@@ -40,13 +40,13 @@ export class MainComponent implements OnInit, OnDestroy {
     //
     // }
 
-    this.subscriptions.push(this.authService.userSignedIn.subscribe(
-      (data) => {
-        this.signedInStatus = data;
-        console.log("sign in stats", this.signedInStatus);
-        console.log("in main (signed in) :", data)
-      }
-    ));
+    // this.subscriptions.push(this.authService.userSignedIn.subscribe(
+    //   (data) => {
+    //     this.signedInStatus = data;
+    //     console.log("sign in stats", this.signedInStatus);
+    //     console.log("in main (signed in) :", data)
+    //   }
+    // ));
 
 
   }
@@ -66,9 +66,9 @@ export class MainComponent implements OnInit, OnDestroy {
     this.routingService.routeToEntity(entity)
   }
 
-  onSignOut() {
-    console.log("sign out clicked");
-    this.authService.signOutUser();
-  }
+  // onSignOut() {
+  //   console.log("sign out clicked");
+  //   this.authService.signOutUser();
+  // }
 
 }
