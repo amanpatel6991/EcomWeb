@@ -1,5 +1,23 @@
-<div class="home-parent">
-  <div style="position: relative;left: 0%;height: 100%">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<div class="home-parent" style=">
+
+  <!--description box -->
+
+  <div style="margin: 0%; background: #2979ff; height: 300px; width:100%;" >
+
+  </div>
+
+
+
+
+
+
+
+  <div style="position: relative;left: 0%;height: 100%;margin: 1%">
     <div class="imgDiv" *ngFor="let img of imgSliderArray" [ngStyle]="{'height':selectedImgIndex == img.index ? '100%' : ''}">
     <img class="navigateButtons" src="../../../assets/icons/leftNavigate1.png" alt=""
          (click)="onLeftNavigate()"
@@ -8,6 +26,6 @@
     <img class="navigateButtons" src="../../../assets/icons/rightNavigate1.png" alt=""
          (click)="onRightNavigate()"
          style="position: absolute;width: 5%;height: 15%;top: 40%;right: 0%;cursor: pointer;opacity: 0.7">
+
     </div>
   </div>
-</div>

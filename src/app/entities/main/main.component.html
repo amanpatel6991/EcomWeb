@@ -1,16 +1,17 @@
 <!--<div [ngClass]="{'main-bg' : !signedInStatus}" style="height: 100%;">-->
-<div style="height: 100%;background-color: #F2F3F7">
+
+<div style="height: 100%;background-color: white;">
   <div class="home-menu-bar flex-row-parent content-space-around">
-    <div class="p-t-18 font-20" style="margin-right: 30%"><b>MY-WEB</b></div>
-    <div class="p-t-18 menu-items font-16" (click)="routeToEntity('')"
-         [ngStyle]="{'color':activeMenuTab == ''?'black':''}">Home
+    <div class="p-t-18 font-20" style="color: #2979ff; padding-left: 5%; padding-right: 5%; padding-top: 1.9%; "><b>MY-WEB</b></div>
+    <div class="p-t-18 menu-items font-16" style="margin-left: 57%; padding-top: 1.9%" (click)="routeToEntity('')"
+         [ngStyle]="{'color':activeMenuTab == ''?'#2979ff':'','border-bottom':activeMenuTab == ''?'5px solid #2979ff':''}">Home
     </div>
     <!--<div class="p-t-18 menu-items font-16">PRODUCTS</div>-->
-    <div class="p-t-18 menu-items font-16" (click)="routeToEntity('about')"
-         [ngStyle]="{'color':activeMenuTab == 'about'?'black':''}">About Us
+    <div class="p-t-18 menu-items font-16" style="padding-top: 1.9%" (click)="routeToEntity('about')"
+         [ngStyle]="{'color':activeMenuTab == 'about'?'#2979ff':'','border-bottom':activeMenuTab == 'about'?'5px solid #2979ff':''}">About Us
     </div>
-    <div class="p-t-18 menu-items font-16" (click)="routeToEntity('contact')"
-         [ngStyle]="{'color':activeMenuTab == 'contact'?'black':''}">Contact
+    <div class="p-t-18 menu-items font-16" style="padding-top: 1.9%" (click)="routeToEntity('contact')"
+         [ngStyle]="{'color':activeMenuTab == 'contact'?'#2979ff':'','border-bottom':activeMenuTab == 'contact'?'5px solid #2979ff':''}">Contact
     </div>
 
     <!--todo For Future Use-->
