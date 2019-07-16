@@ -2,12 +2,12 @@
 
 <div style="height: 100%;background-color: white;">
   <div class="home-menu-bar flex-row-parent content-space-around">
-    <div class="p-t-18 font-20" style="color: #2979ff; padding-left: 5%; padding-right: 5%; padding-top: 1.9%; "><b>MY-WEB</b></div>
+    <div class="p-t-18 font-20 content-no-wrap" style="color: #2979ff; padding-left: 5%; padding-right: 5%; padding-top: 1.9%; "><b>MY-WEB</b></div>
     <div class="p-t-18 menu-items font-16" style="margin-left: 57%; padding-top: 1.9%" (click)="routeToEntity('')"
          [ngStyle]="{'color':activeMenuTab == ''?'#2979ff':'','border-bottom':activeMenuTab == ''?'5px solid #2979ff':''}">Home
     </div>
     <!--<div class="p-t-18 menu-items font-16">PRODUCTS</div>-->
-    <div class="p-t-18 menu-items font-16" style="padding-top: 1.9%" (click)="routeToEntity('about')"
+    <div class="p-t-18 menu-items font-16 content-no-wrap" style="padding-top: 1.9%" (click)="routeToEntity('about')"
          [ngStyle]="{'color':activeMenuTab == 'about'?'#2979ff':'','border-bottom':activeMenuTab == 'about'?'5px solid #2979ff':''}">About Us
     </div>
     <div class="p-t-18 menu-items font-16" style="padding-top: 1.9%" (click)="routeToEntity('contact')"
@@ -32,7 +32,7 @@
     <router-outlet></router-outlet>
   </div>
 
-  <div class="footer" style="height: 30%;">
+  <div class="footer" style="height: 30%;margin: 0.1%">
     <app-footer></app-footer>
   </div>
 </div>
