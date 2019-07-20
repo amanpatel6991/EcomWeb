@@ -30,7 +30,7 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
+    this.routingService.routeToEntity('')
     //Todo For future use
     // if (this.authService.isUserAuthenticated()) {
     //   this.routingService.routeToEntity("userDashboard");

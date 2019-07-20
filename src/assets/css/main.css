@@ -4,6 +4,8 @@ body, h1, h2, h3, h4, h5, h6, text, span {
   /*overflow-y: hidden;*/
   padding: 0%;
   margin: 0%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .main-bg {
@@ -70,21 +72,21 @@ body, h1, h2, h3, h4, h5, h6, text, span {
 }
 
 .home-parent {
-  height: 92vh;
+  height: 100%;
   font-size: 20px;
   color: cornsilk;
 }
 
 .sign-in-parent {
   /*background-image: url("../icons/login-img.jpg");*/
-  height: 92vh;
+  height: 100%;
   font-size: 20px;
   color: cornsilk;
 }
 
 .sign-up-parent {
   /*background-image: url("../icons/login-img.jpg");*/
-  height: 92vh;
+  height: 100%;
   font-size: 20px;
   color: cornsilk;
 }
@@ -98,7 +100,7 @@ body, h1, h2, h3, h4, h5, h6, text, span {
 }
 
 .contact-parent {
-  height: 92vh;
+  height: 100%;
   font-size: 20px;
   color: cornsilk;
 }
@@ -269,4 +271,52 @@ img {
 .imgDiv:hover .navigateButtons {
   display: block;
   /*opacity: 0.3;*/
+}
+
+
+.scroll-slim {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.scroll-slim:hover {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.scroll-slim:hover {
+  margin-right: 0px;
+}
+
+.scroll-slim::-webkit-scrollbar-track {
+  border-radius: 15px;
+  background-color: transparent;
+}
+
+.scroll-slim::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  background-color: transparent;
+}
+
+.scroll-slim::-webkit-scrollbar-thumb {
+  border-radius: 15px;
+  background-color: transparent;
+}
+
+.scroll-slim:hover::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  background-color: #dddddd;
+}
+
+.scroll-slim:hover::-webkit-scrollbar {
+  width: 4px;
+  background-color: #dddddd;
+}
+
+.scroll-slim:hover::-webkit-scrollbar-thumb {
+  border-radius: 15px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #666666;
 }
