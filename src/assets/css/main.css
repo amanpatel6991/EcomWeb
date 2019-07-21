@@ -55,7 +55,6 @@ body, h1, h2, h3, h4, h5, h6, text, span {
 .menu-items {
   padding-left: 2%;
   padding-right: 2%;
-  padding-top: 1.5%;
   cursor: pointer;
   color: #5a5a5a;
 
@@ -349,4 +348,11 @@ ol.carousel-indicators li.active {
 
 ol.carousel-indicators li.active {
   background-color: white;
+}
+
+.vertical-content-center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
 }

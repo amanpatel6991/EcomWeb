@@ -1,30 +1,32 @@
 <!--<div [ngClass]="{'main-bg' : !signedInStatus}" style="height: 100%;">-->
 
 <div style="height: 1800px;background-color: white;">
-  <div class="home-menu-bar flex-row-parent content-space-around">
-    <div class="p-t-18 font-20 content-no-wrap" style="color: #2979ff; padding-left: 5%; padding-right: 5%; padding-top: 1.9%; "><b>MY-WEB</b></div>
-    <div class="p-t-18 menu-items font-16" style="margin-left: 57%; padding-top: 1.9%" (click)="routeToEntity('')"
-         [ngStyle]="{'color':activeMenuTab == ''?'#2979ff':'','border-bottom':activeMenuTab == ''?'5px solid #2979ff':''}">Home
-    </div>
-    <!--<div class="p-t-18 menu-items font-16">PRODUCTS</div>-->
-    <div class="p-t-18 menu-items font-16 content-no-wrap" style="padding-top: 1.9%" (click)="routeToEntity('about')"
-         [ngStyle]="{'color':activeMenuTab == 'about'?'#2979ff':'','border-bottom':activeMenuTab == 'about'?'5px solid #2979ff':''}">About Us
-    </div>
-    <div class="p-t-18 menu-items font-16" style="padding-top: 1.9%" (click)="routeToEntity('contact')"
-         [ngStyle]="{'color':activeMenuTab == 'contact'?'#2979ff':'','border-bottom':activeMenuTab == 'contact'?'5px solid #2979ff':''}">Contact
-    </div>
+  <div class="home-menu-bar flex-row-parent" style="width: 100%">
+    <div class="font-20 content-no-wrap vertical-content-center" style="width: 20%;color: #2979ff; padding-left: 5%; padding-right: 5%;"><b>MY-WEB</b></div>
 
-    <!--todo For Future Use-->
-    <!--<div class="p-t-18 menu-items font-16" (click)="routeToEntity('userDashboard')" *ngIf="signedInStatus"-->
-    <!--[ngStyle]="{'color':activeMenuTab == 'userDashboard'?'black':''}">Dashboard-->
-    <!--</div>-->
-    <!--<div class="p-t-18 menu-items font-16" (click)="routeToEntity('signin')" *ngIf="!signedInStatus"-->
-    <!--[ngStyle]="{'color':activeMenuTab == 'signin'?'black':''}">Sign In-->
-    <!--</div>-->
-    <!--<div class="p-t-18 menu-items font-16" (click)="onSignOut()" *ngIf="signedInStatus"-->
-    <!--[ngStyle]="{'color':'black'}">Sign Out-->
-    <!--</div>-->
+    <div class="flex-row-parent" style="width: 80%;justify-content: flex-end">
+      <div class="menu-items font-16 vertical-content-center" style="" (click)="routeToEntity('')"
+           [ngStyle]="{'color':activeMenuTab == ''?'#2979ff':'','border-bottom':activeMenuTab == ''?'2px solid #2979ff':''}">Home
+      </div>
+      <!--<div class="menu-items font-16">PRODUCTS</div>-->
+      <div class="menu-items font-16 vertical-content-center content-no-wrap" style="" (click)="routeToEntity('about')"
+           [ngStyle]="{'color':activeMenuTab == 'about'?'#2979ff':'','border-bottom':activeMenuTab == 'about'?'2px solid #2979ff':''}">About Us
+      </div>
+      <div class="menu-items font-16 vertical-content-center" style="" (click)="routeToEntity('contact')"
+           [ngStyle]="{'color':activeMenuTab == 'contact'?'#2979ff':'','border-bottom':activeMenuTab == 'contact'?'2px solid #2979ff':''}">Contact
+      </div>
 
+      <!--todo For Future Use-->
+      <!--<div class="p-t-18 menu-items font-16" (click)="routeToEntity('userDashboard')" *ngIf="signedInStatus"-->
+      <!--[ngStyle]="{'color':activeMenuTab == 'userDashboard'?'black':''}">Dashboard-->
+      <!--</div>-->
+      <!--<div class="p-t-18 menu-items font-16" (click)="routeToEntity('signin')" *ngIf="!signedInStatus"-->
+      <!--[ngStyle]="{'color':activeMenuTab == 'signin'?'black':''}">Sign In-->
+      <!--</div>-->
+      <!--<div class="p-t-18 menu-items font-16" (click)="onSignOut()" *ngIf="signedInStatus"-->
+      <!--[ngStyle]="{'color':'black'}">Sign Out-->
+      <!--</div>-->
+      </div>
 
   </div>
 
