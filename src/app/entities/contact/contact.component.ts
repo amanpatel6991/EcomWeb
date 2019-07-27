@@ -2,6 +2,11 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Contact} from "../../common/Models/contact.model";
 import {Subscription} from "rxjs/Rx";
+import {FirebaseService} from "../../common/services/firebase.service";
+
+// import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+
 
 declare var  ol: any;
 
@@ -11,6 +16,8 @@ declare var  ol: any;
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit,OnDestroy {
+
+  queries: Contact;
 
   contactForm: FormGroup;
   contactInfo: Contact;
@@ -24,7 +31,9 @@ export class ContactComponent implements OnInit,OnDestroy {
 
   // phoneNoPattern = '';
 
-  constructor() { }
+  constructor(db: AngularFireDatabase,private firebaseService: FirebaseService) {
+
+  }
 
   subscriptions: Subscription[] = [];
 
@@ -70,7 +79,14 @@ export class ContactComponent implements OnInit,OnDestroy {
       // alert(`lat: ${lat} long: ${lon}`);
     });
 
+    //firebase
+    this.firebaseService.getQueries().subscribe( data => {
+        console.log(data);
+        // console.log(data[0].payload.doc.data())
+    });
+
   }
+
 
   ngOnDestroy() {
     this.subscriptions.forEach((value, index, array) => value.unsubscribe());
@@ -86,13 +102,27 @@ export class ContactComponent implements OnInit,OnDestroy {
   }
 
   onSubmitQuery() {
-    console.log(this.contactInfo)
+    console.log(this.contactInfo);
+    // this.createUserQuery(this.contactInfo);
   }
 
   setCenter() {
     var view = this.map.getView();
     view.setCenter(ol.proj.fromLonLat([this.longitude, this.latitude]));
     view.setZoom(8);
+  }
+
+  createUserQuery(query: Contact){
+    this.firebaseService.createQuery(query);
+  }
+
+  //not to be used
+  updateUserQuery(query: Contact) {
+    this.firebaseService.updateQuery(query);
+  }
+
+  deleteUserQuery(id: string) {
+    this.firebaseService.deleteQuery(id);
   }
 
 }

@@ -1,6 +1,10 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
+import { AngularFireModule} from 'angularfire2';
+import {AngularFirestore} from 'angularfire2/firestore';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {MainComponent} from './entities/main/main.component';
@@ -20,6 +24,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {JwtModule} from "@auth0/angular-jwt";
 import {DataService} from "./common/services/data.service";
 import { SignupComponent } from './entities/signup/signup.component';
+import {environment} from "../environments/environment";
+import {FirebaseService} from "./common/services/firebase.service";
 
 
 @NgModule({
@@ -36,6 +42,8 @@ import { SignupComponent } from './entities/signup/signup.component';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase, 'fcc-book-trading'),
+    AngularFireDatabaseModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -57,7 +65,9 @@ import { SignupComponent } from './entities/signup/signup.component';
     AuthGuard,
     ApiService,
     AuthService,
-    DataService
+    DataService,
+    FirebaseService,
+    AngularFirestore
   ],
   bootstrap: [AppComponent]
 })
