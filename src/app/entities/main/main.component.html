@@ -1,6 +1,6 @@
 <!--<div [ngClass]="{'main-bg' : !signedInStatus}" style="height: 100%;">-->
-
-<div style="height: 1800px;background-color: #F2F2F5;">
+<!--height : 1800px-->
+<div style="background-color: #F2F2F5;" >
   <div class="home-menu-bar flex-row-parent" style="width: 100%">
     <div class="font-20 content-no-wrap vertical-content-center" style="width: 20%;color: #2979ff; padding-left: 5%; padding-right: 5%;"><b>MY-WEB</b></div>
 
@@ -29,12 +29,14 @@
       </div>
 
   </div>
-
-  <div class="" style="height: 89%;margin: 0.1%">
+  <div class="home-menu-bar-cover" style="width: 100%"></div>
+  <div class=""
+       [ngStyle]="{'height':activeMenuTab != ''?'800px':'1550px'}"
+       style="margin: 0.1%">
     <router-outlet></router-outlet>
   </div>
 
-  <div class="footer" style="height: 11%;margin: 0.1%">
+  <div class="footer" style="height: 190px;margin: 0.1%">
     <app-footer></app-footer>
   </div>
 </div>

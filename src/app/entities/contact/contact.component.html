@@ -1,5 +1,97 @@
-<div class="contact-parent">
-  <div style="position: relative;top: 15%;left: 0%;margin: 0% 5% 0% 5%;color: black;">
-    Contact 999999999
+<div class="contact-parent flex-row-parent" style="justify-content: space-evenly">
+  <div style="width: 48%;height: 97%;margin-top: 1%;color: black;background-color: white">
+    <form class="" style="margin: 25% 5% 10% 5%" [formGroup]="contactForm">
+      <div class="flex-row-parent" style="margin-bottom: 5px">
+        <span class="required-field">*</span>
+        <label class="font-16"
+               style="margin: 0%;padding: 15px 0px 12px 0px;color: black;white-space: nowrap">Name  </label>
+        <input class="font-16 roboto-500"
+               type="text"
+               placeholder="Your Email"
+               formControlName="name"
+               autocomplete="off"
+               [(ngModel)]="contactInfo.name"
+               [required]= true
+               style="width: 100%;padding-top: 7px;margin-left: 15px;border: none;
+                      border-bottom: 2px solid slategrey;outline: none"
+               maxlength="20">
+      </div>
+      <div class="flex-row-parent" style="margin-bottom: 5px">
+        <span class="required-field">*</span>
+        <label class="font-16"
+               style="margin: 0%;padding: 15px 0px 12px 0px;color: black;white-space: nowrap">Email  </label>
+        <input class="font-16 roboto-500"
+               type="text"
+               placeholder="Your Email"
+               formControlName="email"
+               autocomplete="off"
+               [(ngModel)]="contactInfo.email"
+               [required]= true
+               style="width: 100%;padding-top: 7px;margin-left: 15px;border: none;
+                      border-bottom: 2px solid slategrey;outline: none"
+               maxlength="20">
+      </div>
+      <div class="flex-row-parent" style="margin-bottom: 5px">
+        <span class="required-field" style="color: transparent;">*</span>
+        <label class="font-16"
+               style="margin: 0%;padding: 15px 0px 12px 0px;color: black;white-space: nowrap">Phone  </label>
+        <input class="font-16 roboto-500"
+               type="text"
+               placeholder="Your Phone"
+               formControlName="phone"
+               autocomplete="off"
+               [(ngModel)]="contactInfo.phone"
+               style="width: 100%;padding-top: 7px;margin-left: 15px;border: none;
+                      border-bottom: 2px solid slategrey;outline: none"
+               maxlength="20">
+      </div>
+      <div class="flex-row-parent" style="margin-bottom: 5px;margin-top: 30px">
+        <!--<span class="required-field">*</span>-->
+        <!--<label class="font-16"-->
+               <!--style="margin: 0%;padding: 15px 0px 12px 0px;color: black;white-space: nowrap">Name  </label>-->
+        <textarea class="font-16 roboto-500"
+               type="text"
+               placeholder="Please share your query with us..."
+               formControlName="query"
+               autocomplete="off"
+               [(ngModel)]="contactInfo.query" cols="30" rows="5"
+               style="width: 100%;padding-top: 7px;margin-left: 15px;
+                      border: 2px solid slategrey;border-radius: 10px;outline: none" maxlength="300"></textarea>
+      </div>
+      <div class="flex-row-parent" style="justify-content: center;margin-top: 10%;height: 40px;">
+        <div class="btn-action font-16 contact-button flex-col-parent"
+             style="justify-content: center"
+             (click)="onSubmitQuery()">Submit</div>
+      </div>
+    </form>
+  </div>
+
+  <div class="flex-col-parent" style="width: 48%;height: 97%;margin-top: 1%;color: black;justify-content: space-evenly;background-color: white">
+    <!--<div>-->
+      <!--<div>-->
+        <!--<label for="latitude">Latitude:</label>-->
+        <!--<input id="latitude" type="number" [(ngModel)]="latitude" placeholder="Latitude">-->
+      <!--</div>-->
+
+      <!--<div>-->
+        <!--<label for="longitude">Longitude:</label>-->
+        <!--<input id="longitude" type="number" [(ngModel)]="longitude" placeholder="Longitude">-->
+      <!--</div>-->
+      <!--<button (click)="setCenter()">Go</button>-->
+    <!--</div>-->
+    <div id="map" class="map"></div>
+    <!--<div id="mouse-position"></div>-->
+
+    <div class="flex-col-parent" style="justify-content: space-between;margin: 10%">
+      <div class="font-20"><b>Street No. 432</b></div>
+      <div class="font-16 opacity-80">Lanlacks Colony</div>
+      <div class="font-16 opacity-80">Nediaj</div>
+      <div class="font-16 opacity-80">203849</div>
+    </div>
   </div>
 </div>
+
+
+<!--Contact 999999999-->
+<!--1. Enquiry Form               2. Insert Map link-->
+<!--3. Address-->
